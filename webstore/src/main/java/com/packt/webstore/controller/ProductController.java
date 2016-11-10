@@ -9,17 +9,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.packt.webstore.domain.Product;
 import com.packt.webstore.domain.repository.ProductRepository;
+import com.packt.webstore.service.ProductService;
 
 @Controller
 public class ProductController {
 
 	@Autowired
-	private ProductRepository productRepository;
+	private ProductService productService;
 	
 	@RequestMapping("/Products")
 	public String product(Model model) {
 		
-		model.addAttribute("products", productRepository.getAllProducts());
+		model.addAttribute("products", productService.getAllProduct());
 		return "products";
 		}
 	
